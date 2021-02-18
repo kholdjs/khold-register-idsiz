@@ -1,0 +1,21 @@
+{
+  "prefix": ".",
+  "sahip": "751139131093942404",
+  "token": "",
+  "Durum": "Khold",
+
+  "Tag": {
+    "tag": ""
+  },
+  
+ "Roles": {
+  "register": "",
+   "erkek": ["",""],
+   "kadın": ["",""],
+   "unregister": ["",""]
+  
+ },
+  "Emoji": {
+    "kirmizi": ""
+  }
+}

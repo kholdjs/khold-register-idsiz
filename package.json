@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "start": "node KHOLD.js"
+  },
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "express": "4.17.1",
+    "moment": "^2.27.0",
+    "moment-duration-format": "^2.2.2",
+    "ms": "^2.1.2",
+    "parse-ms": "^2.0.0",
+    "quick.db": "^7.1.1",
+    "chalk": "^4.1.0",
+    "fs": "^0.0.2",
+    "wio.db": "^4.0.15"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "license": "MIT"
+}
