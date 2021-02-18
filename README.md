@@ -6,3 +6,6 @@ Merhaba, ben Khold sizler için id'siz register botu yaptım. Hatalı ya da çal
 * .isimler @Khold/ID
 
 `config.json` isimli dosyaya girip idleri doldurmanız botun çalışması için yeterli olacaktır. 
+
+
+# KENDİNİZ ÇÖZÜN DİYE BİR KAÇ KÜÇÜK HATA BIRAKTIM BASİT HATALAR HERKESİN YAPABİLECEĞİNİ DÜŞÜNÜYORUM ^^
