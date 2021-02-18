@@ -20,8 +20,8 @@ if(!KHOLD) return KHOLDembed(`Lütfen tüm argümanları doğru yerleştirip tek
 let isim = args.slice(1).join(" | ");
 //  args[1].charAt(0).replace('i', "İ").toUpperCase() + args[1].slice(1);
   if (!isim) return KHOLDembed(`Lütfen tüm argümanları doğru yerleştirip tekrar deneyin!\n\nÖrnek: \`.isim @Khold/ID İsim Yaş\``)
-  KHOLD.setNickname(`${cfg.Tag.tag} ${isim}`)
-  kholdb.push(`users.${KHOLD.user.id}.registerLog`, [
+  KHOLD.(`${cfg.Tag.tag} ${isim}`)
+  kholdb.(`users.${KHOLD.user.id}.registerLog`, [
     {
       tarih: Date.now(),
       isim: `${isim}`,
@@ -48,7 +48,7 @@ const embed = new MessageEmbed()
 .setDescription(`
 ${KHOLD} adlı üyenin kullanıcı adı başarıyla "${cfg.Tag.tag} ${isim}" olarak ayarlandı!
 
-${cfg.Emoji.kirmizi}Kişinin toplamda ${kholdb.get(`users.${KHOLD.user.id}.registerLog`)? kholdb.get(`users.${KHOLD.user.id}.registerLog`).length : 0} isim kayıtı bulundu;\n
+${cfg.Emoji.kirmizi}Kişinin toplamda .get(`users.${KHOLD.user.id}.registerLog`)? kholdb.get(`users.${KHOLD.user.id}.registerLog`) : 0} isim kayıtı bulundu;\n
 `);
     if (kholdb.get(`users.${KHOLD.user.id}.registerLog`) ? true : false) {
       Object.keys(kholdb.get(`users.${KHOLD.user.id}.registerLog`)).forEach(x => {
@@ -90,7 +90,7 @@ message.channel.send(kholdOnay)
 };
 let kholdonaykadın = onayy.first();
 if (kholdonaykadın.content.toLocaleLowerCase().includes(`${kholdPrefix}kadın`)) {
-await KHOLD.roles.add(cfg.Roles.kadın).catch();
+ KHOLD.roles.add(cfg.kadın).catch();
 await KHOLD.roles.remove(cfg.Roles.unregister).catch();
 await KHOLD.roles.remove(cfg.Roles.erkek).catch();
       kholdb.push(`users.${KHOLD.user.id}.registerLog`, [
