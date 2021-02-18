@@ -75,7 +75,7 @@ await KHOLD.roles.add(cfg.Roles.erkek).catch();
 await KHOLD.roles.remove(cfg.Roles.unregister).catch();
 await KHOLD.roles.remove(cfg.Roles.kadın).catch();
   
-    kholdb.push(`users.${KHOLD.user.id}.registerLog`, [
+    kholdb.push(`users.${KHOLD.user.id}.registerLog`, 
     {
       tarih: Date.now(),
       isim: `${isim}`,
@@ -105,11 +105,7 @@ const kholdOnay = new MessageEmbed()
 .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
 .setDescription(`${KHOLD} üyesine <@&${cfg.Roles.kadın[0]}> rolü verildi.`)
 message.channel.send(kholdOnay)
-  };
-}
-                               );  
 
-    };
 };
 exports.conf = {
   enabled: true,
