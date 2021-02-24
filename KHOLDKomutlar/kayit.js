@@ -13,14 +13,11 @@ if(!message.member.roles.cache.has(cfg.Roles.register) && (!message.member.hasPe
 if(KHOLD.id == (`${message.author.id}`)) return message.channel.send(KHOLDembed.setDescription(`Kendine herhangi bir işlem uygulayamazsın.`))
 if(message.member.roles.highest.position < KHOLD.roles.highest.position) return message.channel.send(KHOLDembed.setDescription(`Jaile atmaya çalıştığın üye senle aynı yetkide veya senden üstün!`))
 if(KHOLD.hasPermission("ADMINISTRATOR")) return message.channel.send(KHOLDembed.setDescription(`Yöneticilere herhangi bir işlem uygulayamazsın.`))*/
-if(!cfg.Roles.erkek) return KHOLDembed(`Erkek rolleri ayarlanmamış, \`Config\` dosyasını kontrol edin!`)
-if(!cfg.Roles.unregister) return KHOLDembed(`Kayıtsız rolleri ayarlanmamış, \`Config\` dosyasını kontrol edin!`)
-if(!cfg.Tag.tag) return KHOLDembed(`Tag ayarlanmamış, \`Config\` dosyasını kontrol edin!`) 
 if(!KHOLD) return KHOLDembed(`Lütfen tüm argümanları doğru yerleştirip tekrar deneyin!\n\nÖrnek: \`.isim @Khold/ID İsim Yaş\``)
 let isim = args.slice(1).join(" | ");
 //  args[1].charAt(0).replace('i', "İ").toUpperCase() + args[1].slice(1);
   if (!isim) return KHOLDembed(`Lütfen tüm argümanları doğru yerleştirip tekrar deneyin!\n\nÖrnek: \`.isim @Khold/ID İsim Yaş\``)
-  KHOLD.(`${cfg.Tag.tag} ${isim}`)
+  .(`${cfg.Tag.tag} ${isim}`)
   kholdb.(`users.${KHOLD.user.id}.registerLog`, [
     {
       tarih: Date.now(),
@@ -31,7 +28,7 @@ let isim = args.slice(1).join(" | ");
   
   
 
-let timereplace = args[0];
+
 let time = timereplace.replace(/y/, ' yıl').replace(/d/, ' gün').replace(/s/, ' saniye').replace(/m/, ' dakika').replace(/h/, ' saat') 
 kholdb.add('case', 1)
 const omgkhold = await kholdb.fetch('case')
@@ -42,7 +39,6 @@ let ay = moment(Date.now()+10800000).format("MM")
 let gün = moment(Date.now()+10800000).format("DD")
 let saat = moment(Date.now()+10800000).format("HH:mm:ss")
 let yıl = moment(Date.now()+10800000).format("YYYY")
-let kayıtsaat = `\`${gün} ${ay.replace(/01/, 'Ocak').replace(/02/, 'Şubat').replace(/03/, 'Mart').replace(/04/, 'Nisan').replace(/05/, 'Mayıs').replace(/06/, 'Haziran').replace(/07/, 'Temmuz').replace(/08/, 'Ağustos').replace(/09/, 'Eylül').replace(/10/, 'Ekim').replace(/11/, 'Kasım').replace(/12/, 'Aralık')} ${saat} (${yıl})\``
 const embed = new MessageEmbed()
 .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
 .setDescription(`
@@ -54,9 +50,9 @@ ${cfg.Emoji.kirmizi}Kişinin toplamda .get(`users.${KHOLD.user.id}.registerLog`)
       Object.keys(kholdb.get(`users.${KHOLD.user.id}.registerLog`)).forEach(x => {
         embed.description +=
           "`• " +
-          kholdb.get(`users.${KHOLD.user.id}.registerLog`)[x][0].isim +
+          kholdb(`users.${KHOLD.user.id}.registerLog`)[x][0].isim +
           "` " +
-          `(${kholdb.get(`users.${KHOLD.user.id}.registerLog`)[x][0].rol})\n`;
+          `(${.get(`users.${KHOLD.user.id}.registerLog`)[x][0].rol})\n`;
       });
  embed.description += `
   Kullanıcının daha önceki isimlerine \`.isimler @Khold/ID\` bakarak kayıt işlemini gerçekleştirmeniz önerilir. `
