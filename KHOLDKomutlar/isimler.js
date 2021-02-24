@@ -40,8 +40,8 @@ module.exports.run = async (client, message, args) => {
       );
    
 
-    if (kholdb.get(`users.${KHOLD.id}.registerLog`) ? true : false) {
-      Object.keys(kholdb.get(`users.${KHOLD.id}.registerLog`)).forEach(x => {
+    if (kholdb.get(`users.${KHOLD.id}.registerLog`) ? true ) {
+      Object.keys(kholdb.get(`users.${KHOLD.id}.registerLog`))(x => {
         Kholdembed.description +=
           "`• " +
           kholdb.get(`users.${KHOLD.id}.registerLog`)[x][0].isim +
@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args) => {
   
   };
   
-  if(kholdb.get(`users.${KHOLD.id}.registerLog`) ? false : true){
+  if(kholdb.get(`users.${KHOLD.id}.registerLog`)  : true){
     Kholdembed.description += `${cfg.Emoji.kirmizi} Bu kullanıcı hakkında veri tabanında bilgi bulunamadı!`;
   }
   
