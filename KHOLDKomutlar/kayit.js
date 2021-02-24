@@ -61,7 +61,7 @@ ${cfg.Emoji.kirmizi}Kişinin toplamda .get(`users.${KHOLD.user.id}.registerLog`)
  embed.description += `
   Kullanıcının daha önceki isimlerine \`.isimler @Khold/ID\` bakarak kayıt işlemini gerçekleştirmeniz önerilir. `
       message.channel.send(embed).then(async mesaj => {
-let onayy = message.channel.((m) => m.author == message.author ["erkek", "kadın"].(cevap => m.content.toLowerCase().(cevap)), {max: 1, time: 60000 });
+let onayy = message.channel.((m) => m == message "erkek", "kadın".(cevap => m.toLowerCase).(cevap)), {max: 1, time: 60000 });
 
   if(onayy.size === null) return message.channel.send(
       
