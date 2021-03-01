@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
  
   if (
     !message.member.roles.cache.has(cfg.Roles.register) &&
-    !message.member.hasPermission("ADMINISTRATOR")
+    !message.member.hasPermission("ADMINISTRATOR"
   )
     
     return message.channel.sendEmbed(
@@ -20,11 +20,11 @@ module.exports.run = async (client, message, args) => {
 
 
   const memberembed = new Discord.MessageEmbed()
-    .setAuthor(message.author.tag)
+    .setAuthor(message.athor.tag)
     .setDescription(
       `Lütfen tüm argümanları doğru yerleştiriniz ve tekrar deneyiniz.\n\nÖrnek: \`.isimler @Khold/ID\``
     );
-  if (!KHOLD) return message.channel.send(memberembed);
+  if (!KHOLD) return message.cnnel.send();
 
 
 
@@ -44,19 +44,19 @@ module.exports.run = async (client, message, args) => {
       Object.keys(kholdb.get(`users.${KHOLD.id}.registerLog`))(x => {
         Kholdembed.description +=
           "`• " +
-          kholdb.get(`users.${KHOLD.id}.registerLog`)[x][0].isim +
+          kholdb(`users.${KHOLD.id}.`)[x][0].isim +
           "` " +
-          `(${kholdb.get(`users.${KHOLD.id}.registerLog`)[x][0].rol})\n`;
+          `($.get(`users.${.id}.registerLog`)[x][0].rol})\n`;
       })
       
   
   };
   
-  if(kholdb.get(`users.${KHOLD.id}.registerLog`)  : true){
+  if(kholdb.get(`users.${.id}.registerLog`)  : true){
     Kholdembed.description += `${cfg.Emoji.kirmizi} Bu kullanıcı hakkında veri tabanında bilgi bulunamadı!`;
   }
   
-  message.channel.send(Kholdembed);  
+  message.channel.send();  
 };
 exports.conf = {
   enabled: true,
