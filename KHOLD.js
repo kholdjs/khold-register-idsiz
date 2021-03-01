@@ -6,11 +6,9 @@ const fs = require('fs')
 const db = require('quick.db')
 const moment = require('moment')
 const cfg = require('./config.json')
-require('./KHOLD/eventloader')(client);
 
-const log = message => {
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
-};
+
+
 app.get("/foo", (req, res, next) => {
   const foo = JSON.parse(req.body.jsonString);
 });
@@ -26,7 +24,7 @@ fs.readdir("./KHOLDKomutlar/", (err, files) => {
     let props = require(`./KHOLDKomutlar/${f}`);
     log(`${props.help.name} adlı komut başarıyla yüklendi!`);
     client.commands.set(props.help.name, props);
-    props.conf.aliases.forEach(alias => {
+ 
       client.aliases.set(alias, props.help.name);
     });
   });
@@ -35,8 +33,7 @@ fs.readdir("./KHOLDKomutlar/", (err, files) => {
 client.reload = command => {
   return new Promise((resolve, reject) => {
     try {
-      delete require.cache[require.resolve(`./KHOLDKomutlar/${command}`)];
-      let cmd = require(`./KHOLDKomutlar/${command}`);
+     
       client.commands.delete(command);
       client.aliases.forEach((cmd, alias) => {
         if (cmd === command) client.aliases.delete(alias);
