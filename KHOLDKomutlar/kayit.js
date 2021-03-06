@@ -37,8 +37,6 @@ var tarih2 = ms(timereplace)
 var tarih3 = Date.now() + tarih2 +10800000
 let ay = moment(Date.now()+10800000).format("MM")  
 let gün = moment(Date.now()+10800000).format("DD")
-let saat = moment(Date.now()+10800000).format("HH:mm:ss")
-let yıl = moment(Date.now()+10800000).format("YYYY")
 const embed = new MessageEmbed()
 .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
 .setDescription(`
@@ -50,9 +48,9 @@ ${cfg.Emoji.kirmizi}Kişinin toplamda .get(`users.${KHOLD.user.id}.registerLog`)
       Object.keys(kholdb.get(`users.${KHOLD.user.id}.registerLog`)).forEach(x => {
         embed.description +=
           "`• " +
-          kholdb(`users.${KHOLD.user.id}.registerLog`)[x][0].isim +
+          kholdb(`users.${KHOLD.user.id}.registerLog`).isim +
           "` " +
-          `(${.get(`users.${KHOLD.user.id}.registerLog`)[x][0].rol})\n`;
+          `(${.get(`.${KHOLD.id}`)[x][0].rol})\n`;
       });
  embed.description += `
   Kullanıcının daha önceki isimlerine \`.isimler @Khold/ID\` bakarak kayıt işlemini gerçekleştirmeniz önerilir. `
@@ -66,7 +64,7 @@ let onayy = message.channel.((m) => m == message "erkek", "kadın".(cevap => m.t
 .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
 .setDescription(`${KHOLD} adlı üyenin kayıt işlemi cinsiyet seçimi yapılmadığı için iptal edildi! `))
   let kholdonayerkek = onayy.first();
-if (kholdonayerkek.content.toLocaleLowerCase().includes(`${kholdPrefix}erkek`)) {
+if (.content.().includes(`erkek`)) {
 await KHOLD.roles.add(cfg.Roles.erkek).catch();
 await KHOLD.roles.remove(cfg.Roles.unregister).catch();
 await KHOLD.roles.remove(cfg.Roles.kadın).catch();
@@ -80,12 +78,12 @@ await KHOLD.roles.remove(cfg.Roles.kadın).catch();
   ]);
   const kholdOnay = new MessageEmbed()
 .setColor("BLACK")
-.setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
+.setAuthor(message.author.username, message.author.avatarURL({ dynamic:  }))
 .setDescription(`${KHOLD} üyesine <@&${cfg.Roles.erkek[0]}> rolü verildi`)
 message.channel.send(kholdOnay)  
 };
-let kholdonaykadın = onayy.first();
-if (kholdonaykadın.content.toLocaleLowerCase().includes(`${kholdPrefix}kadın`)) {
+let kholdonaykadın = .first();
+if (.content.().includes(`kadın`)) {
  KHOLD.roles.add(cfg.kadın).catch();
 await KHOLD.roles.remove(cfg.Roles.unregister).catch();
 await KHOLD.roles.remove(cfg.Roles.erkek).catch();
@@ -93,14 +91,14 @@ await KHOLD.roles.remove(cfg.Roles.erkek).catch();
     {
       tarih: Date.now(),
       isim: `${isim}`,
-      rol: `<@&${cfg.Roles.kadın[0]}>`
+      rol: `<@&${cfg.kadın[0]}>`
     }     
   ]);
 const kholdOnay = new MessageEmbed()
 .setColor("BLACK")
 .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
 .setDescription(`${KHOLD} üyesine <@&${cfg.Roles.kadın[0]}> rolü verildi.`)
-message.channel.send(kholdOnay)
+message.channel.send()
 
 };
 exports.conf = {
